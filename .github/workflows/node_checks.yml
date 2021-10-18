@@ -1,0 +1,29 @@
+name: style checks
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  prettier:
+    name: prettier has been run on compatible files
+    runs-on: ubuntu-latest
+    container: node:14
+    steps:
+      - uses: actions/checkout@af513c7a016048ae468971c52ed77d9562c7c819
+      - name: check that modified files are prettier
+        run: npx prettier src/quiz-app/src
+  eslint:
+    name: frontend linting
+    runs-on: ubuntu-latest
+    container: node:14
+    steps:
+      - uses: actions/checkout@af513c7a016048ae468971c52ed77d9562c7c819
+      - name: install dependencies
+        working-directory: frontend/react
+        run: npm install
+      - name: run eslint
+        working-directory: frontend/react
+        run: npx eslint src/quiz-app/src
