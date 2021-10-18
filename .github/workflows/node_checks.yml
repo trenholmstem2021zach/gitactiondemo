@@ -14,7 +14,7 @@ jobs:
     steps:
       - uses: actions/checkout@af513c7a016048ae468971c52ed77d9562c7c819
       - name: check that modified files are prettier
-        run: npx prettier src/quiz-app/src
+        run: npx prettier --check src/quiz-app/src
   eslint:
     name: frontend linting
     runs-on: ubuntu-latest
@@ -22,8 +22,8 @@ jobs:
     steps:
       - uses: actions/checkout@af513c7a016048ae468971c52ed77d9562c7c819
       - name: install dependencies
-        working-directory: frontend/react
+        working-directory: src/quiz-app/
         run: npm install
       - name: run eslint
-        working-directory: frontend/react
+        working-directory: src/quiz-app/
         run: npx eslint src/quiz-app/src
