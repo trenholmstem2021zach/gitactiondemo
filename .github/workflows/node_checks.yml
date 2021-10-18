@@ -26,4 +26,4 @@ jobs:
         run: npm install
       - name: run eslint
         working-directory: src/quiz-app/
-        run: npx eslint src
+        run: npx eslint .
