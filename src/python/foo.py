@@ -11,6 +11,8 @@ import os
 os.makedirs("newfolder", exist_ok=True)
 
 for folders, subfoldes, filenames in os.walk("."):
+    print(subfoldes)
     for filename in filenames:
+        print(str(filename))
         if filename.endswith(".jpg") or filename.endswith(".pdf"):
-            shutil.copy(file_name, "newfolder")
+            shutil.copy(filename, "newfolder")
