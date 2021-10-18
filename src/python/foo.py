@@ -14,6 +14,5 @@ for folders, subfoldes, filenames in os.walk("."):
     print(subfoldes)
     for filename in filenames:
         print(str(filename))
-        if filename.endswith(".jpg") \
-        or filename.endswith(".pdf"):
+        if filename.endswith(".jpg") or filename.endswith(".pdf"):
             shutil.copy(filename, "newfolder")
